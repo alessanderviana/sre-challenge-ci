@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+  phoenix_app:
+    build:
+      context: .
+    command: ["mix", "phx.server"]
+    ports:
+      - "4000:4000"
