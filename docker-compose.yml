@@ -4,6 +4,10 @@ services:
   phoenix_app:
     build:
       context: .
-    command: ["mix", "phx.server"]
+    command: bash -c "
+      cp config/prod.secret.exs.example config/prod.secret.exs
+      && mix phx.server"
+    environment:
+      - MIX_ENV=prod
     ports:
       - "4000:4000"
